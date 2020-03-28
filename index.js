@@ -23,7 +23,10 @@ async function fetchData(page) {
     const text = await page.evaluate(() => {
         const composer = {};
         const card = document.querySelector('dl');
-        composer['name'] = card.querySelector('dt > a > b').innerText;
+        const name = card.querySelector('dt > a > b').innerText;
+        const nameSplit = name.split(/（|）/gi);
+        composer['name_jp'] = nameSplit[1];
+        composer['name_origin'] = nameSplit[0];
         composer['periods'] = card.querySelector('dt > a > span').innerText;
         composer['description'] = card.querySelector('dd').innerText;
 
