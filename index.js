@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-require('dotenv').config();
+const config = require('./config.js');
 
 async function main() {
     console.log('-----main----')
@@ -18,7 +18,7 @@ async function main() {
 
 async function fetchData(page) {
     console.log('-----fetchData----')
-    await page.goto(process.env.TARGET_URL);
+    await page.goto(config.TARGET_URL);
 
     const text = await page.evaluate(() => {
         const composer = {};

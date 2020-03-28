@@ -4,7 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "dotenv": "^8.2.0",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
     "puppeteer": "^2.1.1"
+  },
+  "scripts": {
+    "fetch": "npx babel-node index.js"
   }
 }
