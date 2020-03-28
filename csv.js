@@ -19,8 +19,8 @@ export const create = (records) => {
     });
 
     try {
-        // テキストファイルに出力
-        fs.writeFileSync("output.txt", csvString);
+        // csvファイルに出力
+        fs.writeFileSync("output.csv", csvString);
         console.log('🎉　output complete!');
     }catch(error){
         console.log('エラー：', error);
