@@ -13,6 +13,12 @@ $ yarn output
 データ > テキストを列に分割
 ```
 
+## config.js
+```
+export const COMPOSER_URL = '';
+export const SONG_LIST_URL = '';
+```
+
 ## use
 * [puppeteer/puppeteer: Headless Chrome Node.js API](https://github.com/puppeteer/puppeteer)
 * [CSV Stringify - Usage](https://csv.js.org/stringify/)
