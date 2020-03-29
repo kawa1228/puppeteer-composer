@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
-const config = require('./config.js');
-const csv = require('./csv.js');
+const config = require('../config.js');
+const csv = require('../csv.js');
 
 async function main() {
     console.log('main ...')
@@ -10,7 +10,7 @@ async function main() {
 
     try {
         const records = await fetchRecords(page);
-        csv.create(records);
+        csv.create(records, 'composer');
     } catch(error) {
         console.log('エラー：', error);
     } finally {
@@ -21,7 +21,7 @@ async function main() {
 // puppeteer経由でアクセス
 async function fetchRecords(page) {
     console.log('fetchRecords ...')
-    await page.goto(config.TARGET_URL);
+    await page.goto(config.COMPOSER_URL);
 
     const records = await page.evaluate(() => {
         const node = document.querySelectorAll('dl');
