@@ -4,7 +4,11 @@ config.jsで指定したサイトurlから取得したデータをcsvに出力
 
 ## run
 ```
-$ yarn output
+# 作曲家情報
+$ yarn composer
+
+# 曲情報
+$ yarn songs
 ```
 
 ## spreadsheet
