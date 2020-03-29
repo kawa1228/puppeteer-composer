@@ -31,18 +31,32 @@ async function fetchRecords(page) {
         const data = list.map((item) => {
             const obj = {};
 
-            const name = item.querySelector('dt > a > b').innerText;
+            // 親となる要素
+            const parent = item.querySelector('dt')
+
+            // 名前
+            const name = parent.querySelector('a > b').innerText;
             const nameSplit = name.split(/（|）/gi);
             obj['name_jp'] = nameSplit[1];
             obj['name_origin'] = nameSplit[0];
 
-            obj['periods'] = item.querySelector('dt > a > span').innerText;
-            obj['description'] = item.querySelector('dd').innerText;
+            // 活躍した年、画像、場所、時代、説明
+            const linkArea = parent.querySelector('a').innerText;
+            const linkAreaSplit = linkArea.split(/\n/gi);
+            const active = linkAreaSplit[2];
+            const activeSplit = active.split(' 〜 ');
+            obj['birth_at'] = activeSplit[0];
+            obj['death_at'] = activeSplit[1];
 
-            const linkText = item.querySelector('dt > a').innerText
-            const linkTextSplit = linkText.split(/\n/gi);
-            obj['home_city'] = linkTextSplit[1];
-            obj['activity'] = linkTextSplit[2];
+            obj['icon_url'] = parent.querySelector('a > img').src;
+
+            const city = linkAreaSplit[1];
+            const citySplit = city.split(/（|）/);
+            obj['city_name'] = citySplit[0];
+            obj['city_name_origin'] = citySplit[1];
+
+            obj['periods'] = parent.querySelector('a > span').innerText;
+            obj['description'] = item.querySelector('dd').innerText;
 
             return obj;
         });
