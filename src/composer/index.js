@@ -1,9 +1,9 @@
 const puppeteer = require('puppeteer');
-const config = require('../config.js');
+const config = require('../../config.js');
 const csv = require('../csv.js');
 
 async function main() {
-    console.log('main ...')
+    console.log('composer ...')
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -20,7 +20,7 @@ async function main() {
 
 // puppeteer経由でアクセス
 async function fetchRecords(page) {
-    console.log('fetchRecords ...')
+    console.log('fetch records ...')
     await page.goto(config.COMPOSER_URL);
 
     const records = await page.evaluate(() => {

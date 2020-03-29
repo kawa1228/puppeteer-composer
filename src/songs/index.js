@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const config = require('../config.js');
+const config = require('../../config.js');
 const csv = require('../csv.js');
 
 async function main() {

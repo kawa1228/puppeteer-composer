@@ -20,7 +20,7 @@ export const create = (records, fileName) => {
 
     try {
         // csvファイルに出力
-        fs.writeFileSync(`csv/${fileName}.csv`, csvString);
+        fs.writeFileSync(`src/csv/${fileName}.csv`, csvString);
         console.log('🎉　output complete!');
     }catch(error){
         console.log('エラー：', error);
