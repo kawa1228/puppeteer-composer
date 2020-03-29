@@ -12,6 +12,6 @@
     "puppeteer": "^2.1.1"
   },
   "scripts": {
-    "output": "npx babel-node index.js"
+    "composer": "npx babel-node ./composer/index.js"
   }
 }
